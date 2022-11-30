@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <style>
+        body {background-color: #9a9ded;}
+#pg-div{
+    
+    border: 1px solid white;
+    background-color: white;
+    margin-top: 50px;
+  margin-bottom: 100px;
+  margin-right: 150px;
+  margin-left: 150px;
+  float:bottom;
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+#formdiv{
+    margin:30px;
+}
+.a-div {
+              display: flex;
+            flex-direction: row;
+        }
+        .b-div {
+              display: flex;
+            flex-direction: row;
+        }
+        .a2{
+            margin-left:180px;
+            
+        }
+        .a3{
+            margin-left:180px;
+            
+        }
+        .b2{
+            margin-left:180px;
+            
+        }
+        .b3{
+            margin-left:180px;
+         }
+         .button {
+  background-color: #9a9ded; 
+  border: none;
+  color: white;
+  padding-left: 35px;
+  padding-right: 35px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  
+}
+    </style>
+</head>
+<body>
+    <div id="pg-div">
+    <div id="formdiv">
+        <form id="form" action="nextpage.html"  method="post">
+    <h3>Registration</h3>
+    <h5 style="color: #939596;">Personal Details</h5>
+    <div class="a-div">
+        <div class="a">
+           <label for="fname">Full Name</label><br>
+           <input type="text" id="fname" name="fname" placeholder="Enter Your Name" required>
+       </div>
+       <div class="a2">
+           <label for="birthday">Date of Birth</label><br>
+           <input type="text" id="birthday" name="birthday" placeholder="Enter birth date" required>
+       </div>
+       <div class="a3">
+           <label for="email">Email</label><br>
+           <input type="email" id="email" name="email" placeholder="Enter your email" required>
+       </div>
+   </div>
+   <br>
+   <div class="b-div">
+       <div class="b">
+           <label for="mobile-number">Mobile number</label><br>
+           <input type="number" id="mnumber" name="mnumber" placeholder="Enter mobile number" required>
+       </div>
+       <div class="b2">
+           <label for="Gender">Gender</label><br>
+           <input type="text" id="gender" name="gender" placeholder="Enter your gender">
+       </div>
+       <div class="b3">
+           <label for="Occupation">Occupation</label><br>
+            <input type="text" id="occupation" name="occupation" placeholder="Enter Occupation">
+       </div>
+   </div>
+        
+      <h5 style="color: #939596;">identity Details</h5>
+      
+        <div class="a-div">
+     <div class="a">
+        <label for="idtype">ID type</label><br>
+        <input type="text" id="idtype" name="idtype" placeholder="Enter ID type" required>
+    </div>
+    <div class="a2">
+        <label for="idnumber">ID number</label><br>
+        <input type="number" id="idnumber" name="idnumber" placeholder="Enter ID number" required>
+    </div>
+    <div class="a3">
+        <label for="issueauth">Issue Authority</label><br>
+        <input type="text" id="issueauth" name="issueauth" placeholder="Enter Issue department" required>
+    </div>
+</div>
+<br>
+<div class="b-div">
+    <div class="b">
+        <label for="issuedate">Issue Date</label><br>
+        <input type="text" id="issuedate" name="issuedate" placeholder="Enter ID issue date" required>
+    </div>
+    <div class="b2">
+        <label for="issuestate">Issue State</label><br>
+        <input type="text" id="issuestate" name="issuestate" placeholder="Enter ID issue state" required>
+    </div>
+    <div class="b3">
+        <label for="expdate">Expiry Date</label><br>
+         <input type="text" id="expdate" name="expdate" placeholder="Enter ID expiry date" required>
+    </div>
+</div>
+<br>
+
+<button class="button" type="submit"  id="submitbutton" onclick="return submitform()">Next &rarr;</button>
+      </form>
+    </div>
+</div>
+<script>
+function submitform(){
+        var fname=document.getElementById("fname").value;
+        console.log(fname);
+        var birthday=document.getElementById("birthday").value;
+        console.log(birthday);
+        var email=document.getElementById("email").value;
+        console.log(email);
+        var mnumber=document.getElementById("mnumber").value;
+        console.log(mnumber);
+        var gender=document.getElementById("gender").value;
+        console.log(gender);
+        var occupation=document.getElementById("occupation").value;
+        console.log(occupation);
+        var idtype=document.getElementById("idtype").value;
+        console.log(idtype);
+        var idnumber=document.getElementById("idnumber").value;
+        console.log(idnumber);
+        var issueauth=document.getElementById("issueauth").value;
+        console.log(issueauth);
+        var issuedate=document.getElementById("issuedate").value;
+        console.log(issuedate);
+        var issuestate=document.getElementById("issuestate").value;
+        console.log(issuestate);
+        var expdate=document.getElementById("expdate").value;
+        console.log(expdate);
+
+        var regEmail=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g; 
+        var regPhone=/^\d{10}$/;
+        if (fname == "" ) {
+                    window.alert("Please enter your name properly.");
+                    return false;
+                }
+        if (birthday == "" ) {
+                    window.alert("Please enter your DOB properly.");
+                    return false;
+                }
+        if (email == "" || !regEmail.test(email)) {
+                    window.alert("Please enter a valid e-mail address.");
+                    return false;
+                }
+        if (mnumber == "" || !regPhone.test(mnumber)) {
+                    window.alert("Please enter a valid mobile number address.");
+                    return false;
+                }
+        if (gender == "") {
+                    window.alert("Please enter your gender.");
+                    return false;
+                }
+        if (occupation == "") {
+                    window.alert("Please enter Occupation.");
+                    return false;
+                }
+        if (idtype == "") {
+                    window.alert("Please ID type.");
+                    return false;
+                }
+        if (idnumber == "") {
+                    window.alert("Please enter ID number.");
+                    return false;
+                }
+        if (issueauth == "") {
+                    window.alert("Please enter ID issue department.");
+                    return false;
+                }
+        if (issuedate == "") {
+                    window.alert("Please enter ID issue date.");
+                    return false;
+                }
+        if (issuestate == "") {
+                    window.alert("Please enter ID issue state.");
+                    return false;
+                }
+                
+        if (expdate == "") {
+                    window.alert("Please enter ID Expiry Date.");
+                    return false;
+                }
+   };
+        
+
+
+
+
+</script>
+</body>
+</html>

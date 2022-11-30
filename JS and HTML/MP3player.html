@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MP3 Player</title>
+    <style>
+        img{
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <img id="poster" src="./Assets/images/Dynamite.png" alt="Dynamite" />
+    <audio id="player" controls >
+        <source type="audio/mpeg" src="./Assets/mp3/Dynamite.mp3"></source>
+    </audio>
+
+    <ol>
+        <li >Dynamite</li>
+        <li>BlackSwan_BTS</li>
+        <li>BTS-Permission-to-Dance-Official-MV</li>
+    </ol>
+
+    <script>
+         let songs = ["Dynamite", "BlackSwan_BTS", "BTS-Permission-to-Dance-Official-MV"];
+        let list = document.getElementsByTagName("li");
+        let poster = document.getElementById('poster');
+        let player = document.getElementById('player');
+       
+
+
+        for(let i=0;i<list.length;i++){
+            list[i].addEventListener("click", function(event){
+                console.log(event.target.innerText);
+                document.getElementById('poster').src = "./Assets/images/"+event.target.innerText+".png"
+                document.getElementById('player').src = "./Assets/mp3/"+event.target.innerText+".mp3"
+                document.getElementById('player').play();
+                
+            })
+             
+        };
+       
+     
+
+
+    </script>
+</body>
+</html>
